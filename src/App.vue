@@ -1,26 +1,23 @@
 <template>
     <h1>Hello World</h1>
-    <div v-for="color in colorsBtn" :key="color">
-      <Button :color="color"/>
-    </div>
+    <Container :class="`cont`"/>
 </template>
 
 <script>
-  import Button from './components/Button'
-  
+  import Container from './components/Container'
+
   export default {
     name: 'App',
     components: {
-      Button
-    },
-    data() {
-      return{
-        colorsBtn: ['red', 'blue', 'green', 'salmon', 'violet', 'orange', 'magenta', 'cyan']
-      }
+      Container
     }
   }
 </script>
 
 <style>
-
+  .cont {
+    background-color: burlywood;
+    margin: 5rem;
+    border: black solid 2px;
+  }
 </style>

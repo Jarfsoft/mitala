@@ -1,10 +1,23 @@
 <template>
-  <button class="btn"> </button>
+  <button @mousedown="onPress" @mouseup="onPress" class="btn" :style="{ background: isOnPress ? color : 'dark' + color }" />
 </template>
 
 <script>
   export default {
-    name: 'Button'
+    name: 'Button',
+    props: {
+      color: String
+    },
+    data(){
+      return {
+        isOnPress: false
+      }
+    },
+    methods: {
+      onPress() {
+        this.isOnPress = !this.isOnPress
+      }
+    }
   }
 </script>
 
@@ -13,6 +26,5 @@
     border-radius: 50%;
     width: 100px;
     height: 100px;
-    background-color: darkred;
   }
 </style>

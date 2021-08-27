@@ -23,34 +23,42 @@
 <style>
   .red {
     position: absolute;
-    margin: 15% 26%;
+    margin: 27% 26%;
+    transform: translate(-50%, -50%);
   }
   .blue {
     position: absolute;
-    margin: 15% 74%;
+    margin: 27% 74%;
+    transform: translate(-50%, -50%);
   }
   .green {
     position: absolute;
-    margin: 55% 26%;
+    margin: 67% 26%;
+    transform: translate(-50%, -50%);
   }
   .slategray {
     position: absolute;
-    margin: 55% 74%;
+    margin: 67% 74%;
+    transform: translate(-50%, -50%);
   }
   .violet {
     position: absolute;
-    margin: 35% 15%;
+    margin: 47% 15%;
+    transform: translate(-50%, -50%);
   }
   .orange {
     position: absolute;
-    margin: 35% 85%;
+    margin: 47% 85%;
+    transform: translate(-50%, -50%);
   }
   .slateblue {
     position: absolute;
-    margin: 4% 50%;
+    margin: 16% 50%;
+    transform: translate(-50%, -50%);
   }
   .cyan {
     position: absolute;
-    margin: 66% 50%
+    margin: 78% 50%;
+    transform: translate(-50%, -50%);
   }
 </style>

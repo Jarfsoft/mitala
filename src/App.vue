@@ -1,6 +1,8 @@
 <template>
-    <h1>Hello World</h1>
-    <Container :class="`cont`"/>
+  <h1 class="center">Simon</h1>
+  <div class="cont">
+    <Container />
+  </div>
 </template>
 
 <script>
@@ -15,9 +17,17 @@
 </script>
 
 <style>
+  .center {
+    text-align: center;
+  }
   .cont {
-    background-color: burlywood;
-    margin: 5rem;
+    position: relative;
+    background-color: cornflowerblue;
+    margin: 0 auto;
+    margin-bottom: 15rem;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
     border: black solid 2px;
   }
 </style>

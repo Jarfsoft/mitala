@@ -68,11 +68,6 @@
         }
         this.playSound(num)
       },
-      showPattern() {
-        this.colorsOrder.map((num) => {
-          this.playSound(num)
-        })
-      },
       playSound(num) {
         const elem = document.querySelector(`.${this.colorsBtn[num]}`)
         elem.style.backgroundColor = this.colorsBtn[num];
@@ -106,13 +101,15 @@
           elem.style.backgroundColor = `dark${this.colorsBtn[num]}`
         },1000)
       },
-      playGame() {
+      showPattern(i = 0) {
         setTimeout(() => {
-          if(this.colorsOrder.length !== 0) this.showPattern()
-          this.generateNumber()
-          if(this.colorsOrder.length <= 5) this.game = false
-          else this.playGame()
+          this.playSound(this.colorsOrder[i])
+          i++
+          if(i !== this.colorsOrder.length) this.showPattern(i)
         }, 1000)
+      },
+      playGame() {
+        this.showPattern()
       }
     },
     mounted() {
@@ -131,7 +128,7 @@
         }
       },
       game() {
-        this.playGame()
+        if(this.game) this.playGame()
       }
     }
   }

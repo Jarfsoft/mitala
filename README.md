@@ -2,7 +2,7 @@
 
 > Front-end app that emulates the classic simon toy. By choosing a level and clicking start, you should press the buttons in the correct order. You'll be able to save your score. 
 
-![screenshot]
+![screenshot]()
 
 ## Built
 
@@ -12,7 +12,7 @@
 
 ## Live Demo
 
-[Live Demo]()
+[Live Demo](jarfsoft-simon.netlify.app)
 
 
 ## Getting Started
@@ -29,8 +29,8 @@ To get a local copy up and running follow these simple example steps.
 **STEP 1**
 In the terminal, Run the following commands.
 
-- `git clone https://github.com/Jarfsoft/catalogue_page`
-- `cd catalogue_page`
+- `git clone https://github.com/Jarfsoft/mitala`
+- `cd mitala`
 
 OR
 

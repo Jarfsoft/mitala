@@ -40,7 +40,7 @@ OR
 
 - In the Terminal enter `cd mitala`
 - Run `npm install`
-- Run `npm start`
+- Run `npm run serve`
 
 ## Author
 

@@ -1,6 +1,6 @@
 <template>
   <div v-for="color in colorsBtnTemp" :key="color">
-    <Button :class="color" :color="color"/>
+    <Button @click="select" :class="color" :color="color"/>
   </div>
   <div class="controllers" v-if="!game">
     <label for="level">Level: </label>
@@ -8,6 +8,9 @@
       <option v-for="l in levels" :value="l" :key="l">{{l}}</option>
     </select>
     <button @click="start">Start</button>
+  </div>
+  <div class="controllers" v-if="game">
+    <h1>Score: {{score}}</h1>
   </div>
 </template>
 
@@ -21,7 +24,7 @@
   import address6 from '../assets/audios/La.wav'
   import address7 from '../assets/audios/Si.wav'
   import address8 from '../assets/audios/Do(8va).wav'
-  // import address9 from '../assets/audios/wrong.wav'
+  import address9 from '../assets/audios/wrong.wav'
 
   const note0 = new Audio(address1)
   const note1 = new Audio(address2)
@@ -31,7 +34,7 @@
   const note5 = new Audio(address6)
   const note6 = new Audio(address7)
   const note7 = new Audio(address8)
-  // const wrong = new Audio(address9)
+  const wrong = new Audio(address9)
 
   export default {
     name: 'Container',
@@ -45,7 +48,10 @@
         level: 1,
         levels: [1, 2, 3],
         game: false,
-        colorsOrder: []
+        colorsOrder: [],
+        showing: false,
+        actual: 0,
+        score: 0
       }
     },
     methods: {
@@ -106,10 +112,44 @@
           this.playSound(this.colorsOrder[i])
           i++
           if(i !== this.colorsOrder.length) this.showPattern(i)
+          else {
+            setTimeout(() => {
+              this.generateNumber()
+              this.showing = false
+            }, 1000)
+          }
         }, 1000)
       },
       playGame() {
-        this.showPattern()
+        this.generateNumber()
+      },
+      verify(color) {
+        if(color === this.colorsBtn[this.colorsOrder[this.actual]])
+        {
+          this.actual++
+          this.playSound(this.colorsBtn.indexOf(color))
+          if(this.actual === this.colorsOrder.length) {
+            setTimeout(() => {
+              this.score++
+              this.showing = true
+              this.showPattern()
+              this.actual = 0
+            }, 1000)
+          }
+        }
+        else {
+          wrong.play()
+          this.actual = 0
+          this.score = 0
+          this.colorsOrder = []
+          this.game = false
+        }
+      },
+      select(e) {
+        if(!this.showing && this.game)
+        {
+          this.verify(e.path[0].classList[1])
+        }
       }
     },
     mounted() {

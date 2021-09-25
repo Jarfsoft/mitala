@@ -1,5 +1,6 @@
 <template>
   <h1 class="center">Simon</h1>
+  <Sidebar />
   <div class="cont">
     <Container />
   </div>
@@ -7,11 +8,13 @@
 
 <script>
 import Container from "./components/Container";
+import Sidebar from "./components/Sidebar.vue";
 
 export default {
   name: "App",
   components: {
     Container,
+    Sidebar,
   },
 };
 </script>

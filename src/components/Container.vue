@@ -175,6 +175,27 @@
 </script>
 
 <style>
+  @media (max-width: 600px) {
+    .controllers h1 {
+      font-size: 25px;
+    }
+    .controllers label,
+    .controllers select,
+    .controllers button {
+      height: 20px;
+      width: auto;
+      font-size: 12px;
+    }
+  }
+  @media (min-width: 600px) {
+    .controllers label,
+    .controllers select,
+    .controllers button {
+      height: 25px;
+      width: auto;
+      font-size: 18px;
+    }
+  }
   .red {
     position: absolute;
     margin: 27% 26%;
@@ -222,6 +243,6 @@
     transform: translate(-50%, -50%);
   }
   .controllers select {
-    margin: 0 1rem;
+    margin: 0 0.5rem;
   }
 </style>

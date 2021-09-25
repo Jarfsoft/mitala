@@ -22,9 +22,19 @@
 </script>
 
 <style>
+  @media (max-width: 600px) {
+    .btn {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  @media (min-width: 600px) {
+    .btn {
+      width: 100px;
+      height: 100px;
+    }
+  }
   .btn {
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
   }
 </style>

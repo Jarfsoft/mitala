@@ -20,6 +20,18 @@ export default {
 </script>
 
 <style>
+@media (max-width: 600px) {
+  .cont {
+    width: 250px;
+    height: 250px;
+  }
+}
+@media (min-width: 600px) {
+  .cont {
+    width: 500px;
+    height: 500px;
+  }
+}
 .center {
   text-align: center;
 }
@@ -28,8 +40,6 @@ export default {
   background-color: cornflowerblue;
   margin: 0 auto;
   margin-bottom: 15rem;
-  width: 500px;
-  height: 500px;
   border-radius: 50%;
   box-shadow: -2px 2px 32px -9px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: -2px 2px 32px -9px rgba(0, 0, 0, 0.75);

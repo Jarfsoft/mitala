@@ -9,7 +9,7 @@
       :class="{ 'rotate-180': collapsed }"
       @click="toggleSidebar"
     >
-      <button><b>←</b></button>
+      <button class="arrow">←</button>
     </span>
   </div>
 </template>
@@ -32,6 +32,10 @@
 </style>
 
 <style scoped>
+  .arrow {
+    width: 20px;
+    padding: 0;
+  }
   .sidebar {
     color: black;
     background-color: var(--sidebar-bg-color);
@@ -51,8 +55,7 @@
   }
   .collapse-icon {
     position: absolute;
-    bottom: 0;
-    padding: 0.75em;
+    padding: 0.75em 0;
     transition: 0.2s linear;
   }
   .rotate-180 {

@@ -15,6 +15,7 @@
 </template>
 
 <script>
+  //import { postData as saveOnline } from './APIHelper'
   import Button from './Button'
   import address1 from '../assets/audios/Do.wav'
   import address2 from '../assets/audios/Re.wav'
@@ -139,10 +140,16 @@
         }
         else {
           wrong.play()
-          this.actual = 0
-          this.score = 0
-          this.colorsOrder = []
           this.game = false
+          setTimeout(() => {
+            console.log(this.level)
+            const user = prompt('Enter your name:', 'Name')
+            //if(user !== null) saveOnline(user, this.score, this.level)
+            console.log(user)
+            this.actual = 0
+            this.score = 0
+            this.colorsOrder = []
+          }, 1000)
         }
       },
       select(e) {

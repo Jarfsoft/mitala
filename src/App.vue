@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Container from "./components/Container";
+import Container from "./components/Container.vue";
 import Sidebar from "./components/Sidebar.vue";
 
 export default {

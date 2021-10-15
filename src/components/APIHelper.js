@@ -1,6 +1,6 @@
-const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Jarfsoft-Simon/scores/';
+const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/jarfsoft-simon/scores/';
 
-export const postData = async (uName, uScore, uLevel) => {
+export const postData = async (uName, uScore) => {
   let s;
   if (uScore === 0) s = '0';
   else s = uScore;
@@ -11,7 +11,7 @@ export const postData = async (uName, uScore, uLevel) => {
       Accept: 'Application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ user: uName, score: s, level: uLevel }),
+    body: JSON.stringify({ user: uName, score: s }),
   });
 
   try {

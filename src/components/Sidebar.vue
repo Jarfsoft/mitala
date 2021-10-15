@@ -6,17 +6,17 @@
     <div v-if="!collapsed">
       <p><b>Level 1:</b></p>
       <ol>
-        <li v-for="(l, i) in level1" :key="i">{{i+1}}: {{l.user}} --- {{l.score}}</li>
+        <li v-for="(l, i) in level1" :key="i">{{l.user.slice(1)}} --- {{l.score}}</li>
         <li v-for="(l, i) in 5 - level1.length" :key="i">---</li>
       </ol>
       <p><b>Level 2:</b></p>
       <ol>
-        <li v-for="(l, i) in level2" :key="i">{{i+1}}: {{l.user}} --- {{l.score}}</li>
+        <li v-for="(l, i) in level2" :key="i">{{l.user.slice(1)}} --- {{l.score}}</li>
         <li v-for="(l, i) in 5 - level2.length" :key="i">---</li>
       </ol>
       <p><b>Level 3:</b></p>
       <ol>
-        <li v-for="(l, i) in level3" :key="i">{{i+1}}: {{l.user}} --- {{l.score}}</li>
+        <li v-for="(l, i) in level3" :key="i">{{l.user.slice(1)}} --- {{l.score}}</li>
         <li v-for="(l, i) in 5 - level3.length" :key="i">---</li>
       </ol>
     </div>
@@ -33,16 +33,50 @@
 <script>
   import { collapsed, toggleSidebar, sidebarWidth } from './state'
   import { getData as onlineData } from './APIHelper'
-  const scores = []
-  onlineData().then((data) => {
-    scores.push(...data)
-  });
-  const level1 = scores.filter((i) => {i.level == 1}).sort((a, b) => b.score - a.score).slice(0, 6)
-  const level2 = scores.filter((i) => {i.level == 2}).sort((a, b) => b.score - a.score).slice(0, 6)
-  const level3 = scores.filter((i) => {i.level == 3}).sort((a, b) => b.score - a.score).slice(0, 6)
+
+  import { mapState } from 'vuex'
+  
   export default {
+    name: 'Sidebar',
+    data() {
+      return {
+        level1: [],
+        level2: [],
+        level3: []
+      }
+    },
+    computed: {
+      ...mapState({
+        callUpdateScores: 'updateScores'
+      })
+    },
+    methods: {
+      updateScores() {
+        const scores = []
+        this.level1.splice(0,this.level1.length)
+        this.level2.splice(0,this.level2.length)
+        this.level3.splice(0,this.level3.length)
+        onlineData().then((data) => {
+          scores.push(...data.result)
+          this.level1.push(...scores.filter((i) => i.user[0] == 1).sort((a, b) => b.score - a.score).slice(0, 6))
+          this.level2.push(...scores.filter((i) => i.user[0] == 2).sort((a, b) => b.score - a.score).slice(0, 6))
+          this.level3.push(...scores.filter((i) => i.user[0] == 3).sort((a, b) => b.score - a.score).slice(0, 6))
+        });
+      }
+    },
     setup() {
-      return { collapsed, toggleSidebar, sidebarWidth, level1, level2, level3 }
+      return { collapsed, toggleSidebar, sidebarWidth }
+    },
+    mounted() {
+      this.updateScores()
+    },
+    watch: {
+      callUpdateScores() {
+        if (this.callUpdateScores) {
+          this.updateScores()
+          this.$store.commit('setUpdateScores', false)
+        }
+      }
     }
   }
 </script>

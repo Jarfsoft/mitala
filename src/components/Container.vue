@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  //import { postData as saveOnline } from './APIHelper'
+  import { postData as saveOnline } from './APIHelper'
   import Button from './Button'
   import address1 from '../assets/audios/Do.wav'
   import address2 from '../assets/audios/Re.wav'
@@ -142,10 +142,11 @@
           wrong.play()
           this.game = false
           setTimeout(() => {
-            console.log(this.level)
             const user = prompt('Enter your name:', 'Name')
-            //if(user !== null) saveOnline(user, this.score, this.level)
-            console.log(user)
+            if(user !== null) {
+              saveOnline(this.level.toString(10) + user, this.score)
+              this.$store.commit('setUpdateScores', true)
+            }
             this.actual = 0
             this.score = 0
             this.colorsOrder = []

@@ -12,7 +12,7 @@
 
 ## Live Demo
 
-[Live Demo](jarfsoft-simon.netlify.app)
+[Live Demo](https://jarfsoft-simon.netlify.app/)
 
 
 ## Getting Started

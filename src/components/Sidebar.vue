@@ -58,9 +58,9 @@
         this.level3.splice(0,this.level3.length)
         onlineData().then((data) => {
           scores.push(...data.result)
-          this.level1.push(...scores.filter((i) => i.user[0] == 1).sort((a, b) => b.score - a.score).slice(0, 6))
-          this.level2.push(...scores.filter((i) => i.user[0] == 2).sort((a, b) => b.score - a.score).slice(0, 6))
-          this.level3.push(...scores.filter((i) => i.user[0] == 3).sort((a, b) => b.score - a.score).slice(0, 6))
+          this.level1.push(...scores.filter((i) => i.user[0] == 1).sort((a, b) => b.score - a.score).slice(0, 5))
+          this.level2.push(...scores.filter((i) => i.user[0] == 2).sort((a, b) => b.score - a.score).slice(0, 5))
+          this.level3.push(...scores.filter((i) => i.user[0] == 3).sort((a, b) => b.score - a.score).slice(0, 5))
         });
       }
     },

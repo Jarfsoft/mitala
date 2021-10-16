@@ -1,6 +1,7 @@
 <template>
   <h1 class="center">Simon</h1>
   <Sidebar />
+  <RightSidebar />
   <div class="cont">
     <Container />
   </div>
@@ -9,12 +10,14 @@
 <script>
 import Container from "./components/Container.vue";
 import Sidebar from "./components/Sidebar.vue";
+import RightSidebar from "./components/RightSidebar.vue"
 
 export default {
   name: "App",
   components: {
     Container,
     Sidebar,
+    RightSidebar,
   },
 };
 </script>

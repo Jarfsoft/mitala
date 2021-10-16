@@ -3,6 +3,11 @@
     <h1>
       <span v-if="!collapsed">Instructions</span>
     </h1>
+    <ol class="instruction-list" v-if="!collapsed">
+      <li><p>Choose a level and hit the Start button.</p></li>
+      <li><p>Pay close attention to the button pattern that will be shown by the brightness on them.</p></li>
+      <li><p>Repeat the pattern perfectly or else you'll lose.</p></li>
+    </ol>
     <span
       class="collapse-icon"
       :class="{ 'rotate-180': collapsed }"
@@ -36,6 +41,9 @@
   .arrow2 {
     width: 20px;
     padding: 0;
+  }
+  .instruction-list {
+    padding-inline-start: 1rem !important;
   }
   .rightSidebar {
     color: black;

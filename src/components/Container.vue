@@ -9,7 +9,9 @@
     </select>
     <button @click="start">Start</button>
   </div>
-  <div class="controllers" v-if="game">
+  <div class="score" v-if="game">
+    <span v-if="showing">Watch</span>
+    <span v-if="!showing">Go!</span>
     <h1>Score: {{score}}</h1>
   </div>
 </template>
@@ -252,5 +254,17 @@
   }
   .controllers select {
     margin: 0 0.5rem;
+  }
+  .score{
+    position: absolute;
+    margin: 50% 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+  .score span{
+    text-align: center;
+  }
+  .score h1 {
+    margin-top: 0;
   }
 </style>
